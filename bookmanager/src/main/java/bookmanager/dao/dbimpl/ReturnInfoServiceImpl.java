@@ -1,7 +1,7 @@
 package bookmanager.dao.dbimpl;
 
 import bookmanager.dao.dbservice.ReturnInfoService;
-import bookmanager.model.ReturnInfoDO;
+import bookmanager.model.po.ReturnInfoPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.RowMapper;
@@ -26,14 +26,14 @@ public class ReturnInfoServiceImpl implements ReturnInfoService {
         this.jdbc = jdbc;
     }
 
-    public void save(ReturnInfoDO returnInfo) {
+    public void save(ReturnInfoPO returnInfo) {
         jdbc.update(SAVE, returnInfo.getBookInfoPkId(), returnInfo.getUserId(), returnInfo.getReturnDate());
     }
 
-    private final static class ReturnInfoRowMapper implements RowMapper<ReturnInfoDO> {
+    private final static class ReturnInfoRowMapper implements RowMapper<ReturnInfoPO> {
 
-        public ReturnInfoDO mapRow(ResultSet resultSet, int i) throws SQLException {
-            return new ReturnInfoDO(
+        public ReturnInfoPO mapRow(ResultSet resultSet, int i) throws SQLException {
+            return new ReturnInfoPO(
                     resultSet.getInt(1),
                     resultSet.getInt(2),
                     resultSet.getInt(3),

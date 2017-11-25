@@ -1,6 +1,6 @@
 package bookmanager.dao.dbservice;
 
-import bookmanager.model.BookInfoDO;
+import bookmanager.model.po.BookInfoPO;
 
 import java.util.List;
 
@@ -9,14 +9,14 @@ import java.util.List;
  */
 public interface BookInfoService {
     //向书籍信息表中插入一条数据
-    void save(BookInfoDO bookInfo);
+    void save(BookInfoPO bookInfo);
 
     //通过书籍id进行查询
-    BookInfoDO getBookInfoByBookId(int bookId);
+    BookInfoPO getBookInfoByBookId(int bookId);
 
     //通过关键字进行书名|作者|所属者模糊查询
-    List<BookInfoDO> getListBookInfoByNAO(String keywords);
+    List<BookInfoPO> getListBookInfoByNAO(String keywords);
 
     //修改一本书籍的信息
-    void updateBookInfo(BookInfoDO bookInfo);
+    void updateBookInfo(BookInfoPO bookInfo);
 }

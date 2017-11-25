@@ -1,6 +1,7 @@
 package bookmanager.dao.dbimpl;
 
 import bookmanager.dao.dbservice.BookCommentService;
+import bookmanager.model.po.BookCommentPO;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,4 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class BookCommentServiceImpl implements BookCommentService {
+    // 该数据库操作方法还没有实现
+    public void save(BookCommentPO bookComment) {
+
+    }
 }

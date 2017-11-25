@@ -1,7 +1,7 @@
 package bookmanager.dao.dbimpl;
 
 import bookmanager.dao.dbservice.UserService;
-import bookmanager.model.UserDO;
+import bookmanager.model.po.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.RowMapper;
@@ -26,18 +26,18 @@ public class UserServiceImpl implements UserService {
         this.jdbc = jdbc;
     }
 
-    public UserDO getUserByName(String name) {
+    public UserPO getUserByName(String name) {
         return jdbc.queryForObject(GET_USER_BY_NAME, new UserRowMapper(), name);
     }
 
-    public UserDO getUserById(int id) {
+    public UserPO getUserById(int id) {
         return jdbc.queryForObject(GET_USER_BY_ID, new UserRowMapper(), id);
     }
 
-    private final static class UserRowMapper implements RowMapper<UserDO> {
+    private final static class UserRowMapper implements RowMapper<UserPO> {
 
-        public UserDO mapRow(ResultSet resultSet, int i) throws SQLException {
-            return new UserDO(
+        public UserPO mapRow(ResultSet resultSet, int i) throws SQLException {
+            return new UserPO(
                     resultSet.getInt(1),
                     resultSet.getString(2),
                     resultSet.getInt(3),
